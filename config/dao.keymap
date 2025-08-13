@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
@@ -34,34 +35,34 @@
 &kp LBKT  &kp GRAVE  &kp Q         &kp W        &kp E       &kp R        &kp T          &kp Y        &kp U        &kp I       &kp O        &kp P            &kp MINUS  &kp RBKT
           &kp TAB    &mt LSHIFT A  &mt LCTRL S  &mt LALT D  &mt LWIN F   &kp G          &kp H        &mt RWIN J   &mt RALT K  &mt RCTRL L  &mt RSHIFT SEMI  &kp SQT
           &kp BSLH   &kp Z         &kp X        &kp C       &kp V        &kp B          &kp N        &kp M        &kp COMMA   &kp DOT      &kp FSLH         &kp EQUAL
-                                                &lt 3 DEL   &lt 2 SPACE  &lt LWR ESC    &lt LWR RET  &lt 2 SPACE  &lt 3 BSPC
+                                                &kp DEL     &lt 2 SPACE  &lt LWR ESC    &lt LWR RET  &lt 2 SPACE  &lt 3 BSPC
             >;
         };
 
         nambers_layer {
             bindings = <
-&kp LBRC  &kp TILDE  &kp N1      &kp N2     &kp N3    &kp N4    &kp N5       &kp N6     &kp N7    &kp N8    &kp N9     &kp N0      &kp MINUS  &kp RBRC
-          &kp TAB    &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LWIN  &kp LT       &kp GT     &kp RWIN  &kp RALT  &kp RCTRL  &kp RSHIFT  &kp UNDER
-          &kp PIPE   &kp EXCL    &kp AT     &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR   &kp RPAR    &kp PLUS
-                                            &kp DEL   &trans    &trans       &trans     &trans    &kp BSPC
+&kp LBRC  &kp TILDE  &kp N1      &kp N2     &kp N3    &kp N4     &kp N5    &kp N6  &kp N7     &kp N8    &kp N9     &kp N0      &kp MINUS  &kp RBRC
+          &kp TAB    &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LWIN   &kp LT    &kp GT  &kp RWIN   &kp RALT  &kp RCTRL  &kp RSHIFT  &kp UNDER
+          &kp F11    &kp F1      &kp F2     &kp F3    &kp F4     &kp F5    &kp F6  &kp F7     &kp F8    &kp F9     &kp F10     &kp F12
+                                            &kp DEL   &kp SPACE  &trans    &trans  &kp SPACE  &kp BSPC
             >;
         };
 
         navigation_layer {
             bindings = <
-&none  &kp KP_NUM  &kp KP_SLASH     &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS    &kp C_VOL_UP  &kp HOME  &kp PSCRN  &kp PG_UP  &kp SLCK         &kp CAPS         &none
-       &kp EQUAL   &kp KP_MULTIPLY  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS     &kp C_MUTE    &kp LEFT  &kp UP     &kp RIGHT  &kp INS          &mt RCTRL K_APP
-       &trans      &kp KP_N0        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT      &kp C_VOL_DN  &kp END   &kp DOWN   &kp PG_DN  &kp PAUSE_BREAK  &trans
-                                               &trans     &trans     &trans          &trans        &trans    &trans
+&none  &none  &none       &none      &none     &none     &none    &kp C_VOL_UP  &kp HOME  &kp PSCRN  &kp PG_UP  &kp SLCK         &kp CAPS         &none
+       &none  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LWIN  &none    &kp C_MUTE    &kp LEFT  &kp UP     &kp RIGHT  &kp INS          &mt RCTRL K_APP
+       &none  &none       &none      &none     &none     &none    &kp C_VOL_DN  &kp END   &kp DOWN   &kp PG_DN  &kp PAUSE_BREAK  &none
+                                     &none     &trans    &none    &none         &none     &none
             >;
         };
 
-        function_layer {
+        system_layer {
             bindings = <
-&none  &kp F1  &kp F2     &kp F3    &kp F4    &kp F5      &kp F6    &kp F7  &kp F8      &kp F9    &kp F10   &kp F11    &kp F12  &none
-       &none   &kp LCTRL  &kp LALT  &kp LWIN  &kp LSHIFT  &none     &none   &kp RSHIFT  &kp RWIN  &kp RALT  &kp RCTRL  &none
-       &none   &none      &none     &none     &none       &none     &none   &none       &none     &none     &none      &none
-                                    &trans    &none       &trans    &trans  &none       &trans
+&none  &bootloader  &studio_unlock  &none         &none         &none         &none    &none  &none  &none   &none  &none  &none  &none
+       &bt BT_CLR   &bt BT_SEL 0    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none    &none  &none  &none   &none  &none  &none
+       &none        &none           &none         &none         &none         &none    &none  &none  &none   &none  &none  &none
+                                                  &none         &none         &none    &none  &none  &trans
             >;
         };
     };
