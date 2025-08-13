@@ -1,0 +1,68 @@
+/*
+ * Copyright (c) 2021 Rafael Yumagulov
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+#define DEF 0
+#define LWR 1
+#define RSE 2
+#define ADJ 3
+
+&lt { quick_tap_ms = <200>; };
+
+&mt { quick_tap_ms = <200>; };
+
+/ {
+    chosen {
+        // zmk,matrix_transform = &default_transform;
+        // zmk,matrix_transform = &extra_keys_transform;
+        zmk,physical_layout = &dao_full_layout;
+
+    };
+};
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+&kp LBKT  &kp GRAVE  &kp Q        &kp W       &kp E       &kp R         &kp T          &kp Y        &kp U         &kp I       &kp O       &kp P           &kp MINUS  &kp RBKT
+          &kp TAB    &mt LCTRL A  &mt LALT S  &mt LWIN D  &mt LSHIFT F  &kp G          &kp H        &mt RSHIFT J  &mt RWIN K  &mt RALT L  &mt RCTRL SEMI  &kp SQT
+          &kp BSLH   &kp Z        &kp X       &kp C       &kp V         &kp B          &kp N        &kp M         &kp COMMA   &kp DOT     &kp FSLH        &kp EQUAL
+                                              &lt 3 DEL   &lt 2 SPACE   &lt LWR ESC    &lt LWR RET  &lt 2 SPACE   &lt 3 BSPC
+            >;
+        };
+
+        nambers_layer {
+            bindings = <
+&kp LBRC  &kp TILDE  &kp N1     &kp N2    &kp N3    &kp N4      &kp N5       &kp N6     &kp N7      &kp N8     &kp N9    &kp N0     &kp MINUS  &kp RBRC
+          &kp TAB    &kp LCTRL  &kp LALT  &kp LWIN  &kp LSHIFT  &kp LT       &kp GT     &kp RSHIFT  &kp RWIN   &kp RALT  &kp RCTRL  &kp UNDER
+          &kp PIPE   &kp EXCL   &kp AT    &kp HASH  &kp DLLR    &kp PRCNT    &kp CARET  &kp AMPS    &kp ASTRK  &kp LPAR  &kp RPAR   &kp PLUS
+                                          &kp DEL   &trans      &trans       &trans     &trans      &kp BSPC
+            >;
+        };
+
+        navigation_layer {
+            bindings = <
+&trans  &kp KP_NUM       &kp KP_SLASH     &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS    &kp C_VOL_UP  &kp HOME  &kp PSCRN  &kp PG_UP  &kp SLCK         &kp CAPS         &trans
+        &mt LCTRL EQUAL  &kp KP_MULTIPLY  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS     &kp C_MUTE    &kp LEFT  &kp UP     &kp RIGHT  &kp INS          &mt RCTRL K_APP
+        &trans           &kp KP_N0        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT      &kp C_VOL_DN  &kp END   &kp DOWN   &kp PG_DN  &kp PAUSE_BREAK  &trans
+                                                     &trans     &trans     &kp ESC         &kp RET       &trans    &trans
+            >;
+        };
+
+        function_layer {
+            bindings = <
+&none  &kp F1  &kp F2     &kp F3    &kp F4    &kp F5      &kp F6    &kp F7  &kp F8      &kp F9    &kp F10   &kp F11    &kp F12  &none
+       &none   &kp LCTRL  &kp LALT  &kp LWIN  &kp LSHIFT  &none     &none   &kp RSHIFT  &kp RWIN  &kp RALT  &kp RCTRL  &none
+       &none   &none      &none     &none     &none       &none     &none   &none       &none     &none     &none      &none
+                                    &trans    &none       &trans    &trans  &none       &trans
+            >;
+        };
+    };
+};
